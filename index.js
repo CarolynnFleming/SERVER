@@ -3,10 +3,14 @@ const cors = require('cors');
 require('dotenv').config({ path: './.env'});
 
 const app =express();
-
+const createCheckoutSession = require('./api//checkout')
 const port = 5050;
 
 app.use(express.json());
 app.use(cors({ origin: true}));
+
 app.get('/', (req, res) => res.send('YO Peeps'));
+
+app.post('/create-checkout-session', createCheckoutSession);
+
 app.listen(port, () => console.log('server listening on port', port));
