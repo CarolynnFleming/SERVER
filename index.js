@@ -8,7 +8,7 @@ const port = 5050;
 
 app.use(express.json());
 app.use(cors({ origin: true}));
-app.use(express.static(path.resolve(__dirname,"./client/build")))
+app.use(express.static(path.resolve(__dirname,"./client/build")));
 app.get('/', (req, res) => res.send('YO Peeps'));
 
 app.post('/create-checkout-session', createCheckoutSession);
