@@ -12,5 +12,4 @@ app.use(express.static(path.resolve(__dirname,"./client/build")));
 app.get('/', (req, res) => res.send('YO Peeps'));
 
 app.post('/create-checkout-session', createCheckoutSession);
-app.post('/canceled')
 app.listen(port, () => console.log('server listening on port', port));
