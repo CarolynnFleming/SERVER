@@ -1,7 +1,8 @@
 const stripeAPI = require('../stripe');
 
 async function createCheckoutSession(req, res) {
-    const domainUrl = process.env.WEB_APP_URL;
+    
+    console.log(domainUrl, 'come onnnnn');
     const { line_items, customer_email } = req.body;
     if(!line_items || !customer_email) {
         return res.status(400).json({error: 'missing required session parameters' });
@@ -14,8 +15,8 @@ async function createCheckoutSession(req, res) {
             mode: 'payment',
             line_items,
             customer_email,
-            success_url: `${domainUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${domainUrl}/canceled`,
+            success_url: `https://jovial-choux-3e4c2c.netlify.app/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `https://jovial-choux-3e4c2c.netlify.app/canceled`,
             shipping_address_collection: { allowed_countries: ['GB', 'US']}
 
         });
