@@ -4,16 +4,13 @@ require('dotenv').config({ path: './.env'});
 const path = require('path');
 const app =express();
 const createCheckoutSession = require('./api//checkout')
-// app.use(
-//     require('cors')({
-//       origin: ['https://jovial-choux-3e4c2c.netlify.app'],
-//       credentials: true,
-//     })
-//   );
+const port = 5050;
+
 app.use(express.json());
 app.use(cors({ origin: true}));
 app.use(express.static(path.resolve(__dirname,"./client/build")));
 app.get('/', (req, res) => res.send('YO Peeps'));
 
 app.post('/create-checkout-session', createCheckoutSession);
-app.listen(process.env.Port || 5050, () => console.log('server listening on port'));
+
+app.listen(port, () => console.log('server listening on port', port));

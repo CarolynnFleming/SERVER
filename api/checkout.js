@@ -2,9 +2,7 @@ const stripeAPI = require('../stripe');
 
 async function createCheckoutSession(req, res) {
     const domainUrl = process.env.WEB_APP_URL;
-    
     const { line_items, customer_email } = req.body;
-    console.log(line_items, 'argh');
     if(!line_items || !customer_email) {
         return res.status(400).json({error: 'missing required session parameters' });
     }
