@@ -3,7 +3,7 @@ const cors = require('cors');
 require('dotenv').config({ path: './.env'});
 const path = require('path');
 const app =express();
-const createCheckoutSession = require('./api//checkout')
+const createCheckoutSession = require('./api/checkout')
 const port = 5050;
 
 app.use(express.json());
